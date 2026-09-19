@@ -1,0 +1,968 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background: #f4f5f7;
+  color: #111827;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================
+   COMMON
+========================================= */
+
+.app {
+  min-height: 100vh;
+}
+
+.eyebrow {
+  display: block;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color: #6b7280;
+
+  margin-bottom: 6px;
+}
+
+
+/* =========================================
+   MARQUEE
+========================================= */
+
+.offer-marquee {
+  width: 100%;
+  height: 46px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  background: #111827;
+  color: #fff;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+
+  animation:
+    marquee 28s linear infinite;
+}
+
+.marquee-offer {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 0 35px;
+
+  white-space: nowrap;
+
+  font-size: 14px;
+}
+
+.marquee-star {
+  color: #fbbf24;
+  font-size: 12px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(50%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* =========================================
+   SHOP PAGE
+========================================= */
+
+.shop-page {
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.shop-header {
+  max-width: 960px;
+
+  margin: 30px auto 24px;
+
+  padding: 0 10px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.shop-header h1 {
+  margin: 0;
+
+  font-size: 34px;
+  font-weight: 600;
+
+  letter-spacing: -1px;
+}
+
+.shop-header p {
+  margin: 8px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.admin-button,
+.shop-button {
+  border: none;
+
+  background: #111827;
+  color: white;
+
+  padding: 11px 17px;
+
+  border-radius: 6px;
+
+  font-size: 13px;
+}
+
+.admin-button:hover,
+.shop-button:hover {
+  background: #374151;
+}
+
+.shop-container {
+  max-width: 960px;
+
+  margin: 0 auto;
+
+  padding: 0 10px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 30px;
+}
+
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+.products-card,
+.basket-card {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 8px;
+}
+
+.products-card {
+  width: 310px;
+}
+
+.basket-card {
+  width: 100%;
+
+  max-width: 500px;
+}
+
+.section-title {
+  padding: 16px 18px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-title h2 {
+  margin: 0;
+
+  font-size: 21px;
+
+  font-weight: 500;
+}
+
+.product-row {
+  min-height: 60px;
+
+  padding: 9px 12px;
+
+  display: flex;
+
+  align-items: center;
+
+  border-bottom: 1px solid #edf0f2;
+}
+
+.product-row:last-child {
+  border-bottom: none;
+}
+
+.product-name {
+  flex: 1;
+
+  font-size: 15px;
+}
+
+.product-price {
+  width: 65px;
+
+  text-align: right;
+
+  color: #4b5563;
+
+  font-size: 14px;
+
+  margin-right: 12px;
+}
+
+.add-button {
+  width: 46px;
+  height: 36px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #5798ed;
+
+  color: white;
+
+  font-size: 13px;
+
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+
+.add-button:hover {
+  background: #397fd7;
+}
+
+.add-button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================
+   BASKET
+========================================= */
+
+.basket-item {
+  padding: 12px 14px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.basket-main-row {
+  min-height: 42px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.basket-product-name {
+  flex: 1;
+
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+.basket-price {
+  width: 65px;
+
+  color: #4b5563;
+
+  font-size: 14px;
+}
+
+.quantity-controls {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.quantity {
+  min-width: 15px;
+
+  text-align: center;
+
+  font-size: 14px;
+}
+
+.quantity-button {
+  width: 28px;
+  height: 38px;
+
+  border-radius: 6px;
+
+  font-size: 19px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-button.plus {
+  border: none;
+
+  background: #5798ed;
+
+  color: white;
+}
+
+.quantity-button.minus {
+  border: 1px solid #5798ed;
+
+  background: white;
+
+  color: #111827;
+}
+
+.quantity-button:hover {
+  opacity: 0.85;
+}
+
+.item-price-row {
+  text-align: right;
+
+  color: #737b87;
+
+  font-size: 12px;
+
+  padding-top: 6px;
+}
+
+.item-savings {
+  text-align: right;
+
+  color: #ef4444;
+
+  font-size: 13px;
+
+  padding-top: 8px;
+}
+
+.item-cost {
+  text-align: right;
+
+  font-size: 13px;
+
+  padding-top: 5px;
+}
+
+
+/* =========================================
+   EMPTY BASKET
+========================================= */
+
+.empty-basket {
+  text-align: center;
+
+  padding: 55px 20px;
+
+  color: #6b7280;
+}
+
+.empty-icon {
+  font-size: 35px;
+
+  margin-bottom: 12px;
+}
+
+.empty-basket h3 {
+  margin: 0 0 5px;
+
+  color: #374151;
+
+  font-size: 16px;
+
+  font-weight: 500;
+}
+
+.empty-basket p {
+  margin: 0;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   APPLIED OFFERS
+========================================= */
+
+.applied-offers {
+  margin: 15px;
+
+  padding: 13px;
+
+  border-radius: 7px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+}
+
+.applied-offers h3 {
+  margin: 0 0 10px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.applied-offer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 8px 0;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.applied-offer > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.applied-offer strong {
+  font-size: 12px;
+}
+
+.applied-offer span {
+  color: #6b7280;
+
+  font-size: 11px;
+}
+
+.saving-value {
+  color: #ef4444;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   BILL SUMMARY
+========================================= */
+
+.basket-summary {
+  padding: 15px 16px 18px;
+}
+
+.summary-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 7px 0;
+
+  font-size: 14px;
+}
+
+.summary-row strong {
+  font-weight: 500;
+}
+
+.savings-row {
+  color: #ef4444;
+}
+
+.summary-divider {
+  height: 1px;
+
+  background: #e5e7eb;
+
+  margin: 7px 0;
+}
+
+.total-row {
+  padding-top: 11px;
+
+  font-size: 17px;
+
+  color: #111827;
+}
+
+.total-row strong {
+  font-weight: 600;
+}
+
+
+/* =========================================
+   ADMIN PAGE
+========================================= */
+
+.admin-page {
+  min-height: 100vh;
+
+  padding: 35px 20px 50px;
+}
+
+.admin-header {
+  max-width: 900px;
+
+  margin: 0 auto 28px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+}
+
+.admin-header h1 {
+  margin: 0;
+
+  font-size: 32px;
+
+  font-weight: 600;
+}
+
+.admin-header p {
+  margin: 7px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   ADMIN SECTIONS
+========================================= */
+
+.admin-section {
+  max-width: 900px;
+
+  margin: 0 auto 20px;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.admin-section-header {
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-section-header h2 {
+  margin: 0;
+
+  font-size: 20px;
+
+  font-weight: 500;
+}
+
+.admin-section-header p {
+  margin: 6px 0 0;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   ADMIN PRODUCTS
+========================================= */
+
+.admin-product-row {
+  min-height: 75px;
+
+  padding: 15px 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom: 1px solid #edf0f2;
+}
+
+.admin-product-row:last-child {
+  border-bottom: none;
+}
+
+.admin-product-row > div:first-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.admin-product-row strong {
+  font-size: 15px;
+}
+
+.admin-product-row span {
+  color: #9ca3af;
+
+  font-size: 12px;
+}
+
+.admin-price-input {
+  display: flex;
+
+  align-items: center;
+
+  width: 130px;
+
+  height: 40px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+}
+
+.admin-price-input span {
+  padding-left: 10px;
+
+  color: #6b7280;
+}
+
+.admin-price-input input {
+  width: 100%;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  padding: 0 9px;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   ADMIN OFFERS
+========================================= */
+
+.admin-offers {
+  padding: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.admin-offer-card {
+  border: 1px solid #e5e7eb;
+
+  border-radius: 7px;
+
+  padding: 18px;
+}
+
+.offer-admin-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+.offer-admin-header h3 {
+  margin: 0;
+
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+.offer-admin-header p {
+  margin: 5px 0 0;
+
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   OFFER TOGGLE
+========================================= */
+
+/* .status-toggle {
+  min-width: 48px;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  border: 1px solid #d1d5db;
+
+  background: white;
+
+  color: #6b7280;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.status-toggle.enabled {
+  background: #59af68;
+
+  border-color: #276134;
+
+  color: white;
+} */
+
+.status-toggle {
+  position: relative;
+
+  width: 48px;
+  height: 26px;
+
+  padding: 0;
+
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+
+  background: #d1d5db;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.status-toggle.enabled {
+  background: #59af68;
+  border-color: #59af68;
+}
+
+.toggle-knob {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+
+  transition: transform 0.2s ease;
+}
+
+.status-toggle.enabled .toggle-knob {
+  transform: translateX(22px);
+}
+
+.status-toggle:focus-visible {
+  outline: 2px solid #5798ed;
+  outline-offset: 2px;
+}
+
+
+/* =========================================
+   OFFER FIELDS
+========================================= */
+
+.offer-fields {
+  display: flex;
+
+  gap: 18px;
+
+  margin-bottom: 16px;
+}
+
+.offer-fields label,
+.description-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  color: #4b5563;
+
+  font-size: 12px;
+}
+
+.offer-fields input,
+.description-field input {
+  height: 38px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 5px;
+
+  padding: 0 10px;
+
+  outline: none;
+
+  font-size: 13px;
+}
+
+.offer-fields input {
+  width: 150px;
+}
+
+.description-field {
+  width: 100%;
+}
+
+.description-field input {
+  width: 100%;
+}
+
+.offer-fields input:focus,
+.description-field input:focus,
+.admin-price-input:focus-within {
+  border-color: #5798ed;
+}
+
+
+/* =========================================
+   ADMIN NOTE
+========================================= */
+
+.admin-note {
+  max-width: 900px;
+
+  margin: 18px auto;
+
+  color: #6b7280;
+
+  text-align: center;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+  .shop-header,
+  .admin-header {
+    align-items: flex-start;
+
+    gap: 20px;
+
+    flex-direction: column;
+  }
+
+  .shop-container {
+    flex-direction: column;
+  }
+
+  .products-card,
+  .basket-card {
+    width: 100%;
+
+    max-width: none;
+  }
+
+  .offer-fields {
+    flex-direction: column;
+  }
+
+  .offer-fields input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .shop-page {
+    padding-bottom: 20px;
+  }
+
+  .shop-header {
+    margin-top: 20px;
+  }
+
+  .shop-header h1 {
+    font-size: 28px;
+  }
+
+  .admin-page {
+    padding: 25px 12px;
+  }
+
+  .admin-header h1 {
+    font-size: 27px;
+  }
+
+  .basket-main-row {
+    gap: 5px;
+  }
+
+  .basket-price {
+    width: 55px;
+  }
+
+  .quantity-controls {
+    gap: 8px;
+  }
+}
