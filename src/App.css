@@ -267,6 +267,11 @@ button {
 .add-button:hover {
   background: #397fd7;
 }
+.add-button:disabled {
+  background: #9ca3af;
+
+  cursor: not-allowed;
+}
 
 .add-button:active {
   transform: scale(0.96);
@@ -342,6 +347,12 @@ button {
   background: #5798ed;
 
   color: white;
+}
+
+.quantity-button.plus:disabled {
+  background: #9ca3af;
+
+  cursor: not-allowed;
 }
 
 .quantity-button.minus {

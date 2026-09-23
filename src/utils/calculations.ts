@@ -69,11 +69,7 @@ export const calculateBill = (
 
     const appliedOffers: AppliedOffer[] = [];
 
-    /*
-     * ----------------------------------------
-     * CHEESE: Buy 1 Get 1 Free
-     * ----------------------------------------
-     */
+    /* CHEESE: Buy 1 Get 1 Free */
     const cheeseOffer = offers.find(
         (offer) =>
             offer.id === 'cheese-offer' &&

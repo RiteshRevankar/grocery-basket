@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useAppSelector } from '../app/hooks';
 import BasketItem from './BasketItem';
 import { calculateBill } from '../utils/calculations';
+import { toast } from 'react-toastify';
 
 const Basket = () => {
     const products = useAppSelector(
@@ -25,6 +26,21 @@ const Basket = () => {
             ),
         [products, basket, offers]
     );
+
+
+    const MAX_BUDGET = 20;
+    const WARNING_AMOUNT = MAX_BUDGET * 0.9;
+
+    useEffect(() => {
+        if (
+            bill.total >= WARNING_AMOUNT &&
+            bill.total < MAX_BUDGET
+        ) {
+            toast.warning(
+                'Your basket has reached 90% of the £20 budget.'
+            );
+        }
+    }, [bill.total]);
 
     return (
         <section className="basket-card">
@@ -62,6 +78,8 @@ const Basket = () => {
                                         basketItem.productId
                                 );
 
+                            const canAdd = bill.total + product.price <= MAX_BUDGET;
+
                             return (
                                 <BasketItem
                                     key={product.id}
@@ -75,6 +93,7 @@ const Basket = () => {
                                         product.price *
                                         basketItem.quantity
                                     }
+                                    canAdd={canAdd}
                                 />
                             );
                         })}

@@ -10,6 +10,7 @@ interface BasketItemProps {
     quantity: number;
     itemSaving: number;
     itemCost: number;
+    canAdd: boolean;
 }
 
 const BasketItem = ({
@@ -17,6 +18,7 @@ const BasketItem = ({
     quantity,
     itemSaving,
     itemCost,
+    canAdd,
 }: BasketItemProps) => {
     const dispatch = useAppDispatch();
 
@@ -40,6 +42,7 @@ const BasketItem = ({
                             dispatch(increaseQuantity(product.id))
                         }
                         aria-label={`Increase ${product.name}`}
+                        disabled={!canAdd}
                     >
                         +
                     </button>
